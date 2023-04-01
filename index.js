@@ -47,6 +47,7 @@ app.get("/", async(req, res) => {
 });
 
 app.post("/", async (req, res) => {
+
   const { name,age,gender,phone_number,alternate_phone_number,email,address,medical_history,experience,last_gym_name,requirements,transaction,duration,currDate } = req.body;
 
   // console.log(req.body);
@@ -90,7 +91,7 @@ app.post("/", async (req, res) => {
     range: "Sheet1",
   });
 
-  res.send(getRows.data)
+  // res.send(getRows.data)
 });
 
 app.listen(process.env.PORT || 5000,function(){
