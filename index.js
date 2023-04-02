@@ -16,34 +16,34 @@ app.use(function (req, res, next) {
 
 app.get("/", async(req, res) => {
 
-  // const auth = new google.auth.GoogleAuth({
-  //   keyFile: "credentials.json",
-  //   scopes: "https://www.googleapis.com/auth/spreadsheets",
-  // });
+  const auth = new google.auth.GoogleAuth({
+    keyFile: "credentials.json",
+    scopes: "https://www.googleapis.com/auth/spreadsheets",
+  });
 
-  // // Create client instance for auth
-  // const client = await auth.getClient();
+  // Create client instance for auth
+  const client = await auth.getClient();
 
-  // // Instance of Google Sheets API
-  // const googleSheets = google.sheets({ version: "v4", auth: client });
+  // Instance of Google Sheets API
+  const googleSheets = google.sheets({ version: "v4", auth: client });
 
-  // const spreadsheetId = "1RQxUwl37mQGZCDVlKoTUWcrl3EIJzT0LLKfeztuCaK8";
+  const spreadsheetId = "1RQxUwl37mQGZCDVlKoTUWcrl3EIJzT0LLKfeztuCaK8";
 
-  // // Get metadata about spreadsheet
-  // const metaData = await googleSheets.spreadsheets.get({
-  //   auth,
-  //   spreadsheetId,
-  // });
+  // Get metadata about spreadsheet
+  const metaData = await googleSheets.spreadsheets.get({
+    auth,
+    spreadsheetId,
+  });
 
-  // // Read rows from spreadsheet
-  // const getRows = await googleSheets.spreadsheets.values.get({
-  //   auth,
-  //   spreadsheetId,
-  //   range: "Sheet1",
-  // });
-  // res.send(getRows.data);
+  // Read rows from spreadsheet
+  const getRows = await googleSheets.spreadsheets.values.get({
+    auth,
+    spreadsheetId,
+    range: "Sheet1",
+  });
+  res.send(getRows.data);
 
-  res.send("working ......");
+  // res.send("working ......");
 });
 
 app.post("/", async (req, res) => {
@@ -91,7 +91,7 @@ app.post("/", async (req, res) => {
     range: "Sheet1",
   });
 
-  // res.send(getRows.data)
+  res.send(getRows.data)
 });
 
 app.listen(process.env.PORT || 5000,function(){
