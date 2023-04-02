@@ -43,11 +43,11 @@ app.get("/", async(req, res) => {
 
   const spreadsheetId = process.env.SPREADSHEETID;
 
-  // Get metadata about spreadsheet
-  const metaData = await googleSheets.spreadsheets.get({
-    auth,
-    spreadsheetId,
-  });
+  // // Get metadata about spreadsheet
+  // const metaData = await googleSheets.spreadsheets.get({
+  //   auth,
+  //   spreadsheetId,
+  // });
 
   // // Read rows from spreadsheet
   // const getRows = await googleSheets.spreadsheets.values.get({
